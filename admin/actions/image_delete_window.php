@@ -22,8 +22,9 @@ $row = $db->getOne($sql);
         <div class="form-group"><label>ID</label>
             <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="image_idDel" value="<?php echo $row['image_id']; ?>" readonly></div>
 
-        <div class="form-group"><label>Item</label>
+        <div class="form-group"><label>Image</label>
             <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="imageDel" value="<?php echo $row['image_name']; ?>" readonly></div>
+
 
 
 

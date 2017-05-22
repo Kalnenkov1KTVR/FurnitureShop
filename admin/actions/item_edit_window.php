@@ -50,7 +50,7 @@ $row = $db->getOne($sql);
 
 <script type="text/javascript">
     $("#edit").click(function () {
-        $.post("actions/eriala_edit.php", $("#formE").serialize())
+        $.post("actions/item_edit.php", $("#formE").serialize())
                 .done(function (data) {
                     $("#main").load("content/items.php");
                 });

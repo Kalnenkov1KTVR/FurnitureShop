@@ -33,6 +33,7 @@ if (!isset($_SESSION["rank"]) || ($_SESSION["rank"] != "admin")) {
                         <li><a id="categories" href="#">Categories</a></li>
                         <li><a id="items" href="#">Items</a></li>
                         <li><a id="images" href="#">Images</a></li>
+                        <li><a id="comments" href="#">Comments</a></li>
                         <li><a id="logout" href="#" style="margin-left: 250px;">
                                 
                                 <?php echo $_SESSION["rank"] . " "; ?>
@@ -67,6 +68,9 @@ if (!isset($_SESSION["rank"]) || ($_SESSION["rank"] != "admin")) {
             });
             $("#images").click(function () {
                 $("#main").load("content/images.php");
+            });
+            $("#comments").click(function () {
+                $("#main").load("content/comments.php");
             });
             $("#logout").click(function () {
 

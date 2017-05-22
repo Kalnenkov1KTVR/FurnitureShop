@@ -8,6 +8,7 @@ $id = $_POST['image_idDel'];
 $sql = "SELECT * FROM `example_images` WHERE `image_id`=$id";
 
 $row = $db->getOne($sql);
+unlink("../../files/".$row['image_name']);
 
 $sql = "DELETE FROM `example_images` WHERE `example_images`.`image_id` = $id";
 
