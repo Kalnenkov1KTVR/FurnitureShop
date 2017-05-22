@@ -1,5 +1,6 @@
-<h1>продукция</h1>
-<p>картинки (по категориям)</p>
+<h1>Продукция</h1>
+
+
 
 <?php
 $sql = "SELECT * FROM `items` ORDER BY `items`.`item_name` ASC";
@@ -13,22 +14,22 @@ foreach ($rows as $row) {
     if ($memberG > 0) {
         echo '<h3>' . $row['item_name'] . '</h3>';
 
-        echo '<div class="row features_list1">';
+        echo '<div class="row">';
         $pic = 0;
         foreach ($rowsG as $image) {
             $pic++;
-            echo '<div class="col-md-4 feature">';
+            echo '<div style="width: 33.3%; display: inline-block;">';
             echo '<div class="fancyDemo">';
             echo '<a rel="group" title="" href="files/' . $image['image_name'] . '">'
-            . '<img src="files/' . $image['image_name'] . '" alt=""class="img-responsive" style="height:150px;"/>'
+            . '<img src="files/' . $image['image_name'] . '" alt=""class="img-responsive" style="height:145px;"/>'
             . '</a>';
 
             echo '</div>';
             echo '</div>';
-            if ($pic == 4) {
+            if ($pic == 3) {
                 $pic = 0;
                 echo '</div>';
-                echo '<div class="row features_list1">';
+                echo '<div class="row">';
             }
         }
         echo '</div>';

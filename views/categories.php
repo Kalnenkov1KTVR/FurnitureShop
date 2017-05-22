@@ -25,14 +25,16 @@ if (isset($_GET['idCat']) & !isset($_GET['idItem'])) {
     $sqlItem = 'SELECT * FROM `items` WHERE `category_id` = ' . $idCat . ' ORDER BY `items`.`item_name`';
     $rowsItem = $db->getAll($sqlItem);
     foreach ($rowsItem as $rowItem) {
+        echo '<div style="width: 25%; height: 75px; display: inline-block;"><a href="' . INDEX . '?page=' . $page . '&idCat=' . $rowC['category_id'] . '&idItem=' . $rowItem['item_id'] . '">';
+        echo '<div style="width: 50%; margin: 0 auto;">' . $rowItem['item_name'] . '</div>';
+        echo '<br>';
         $sqlImg = 'SELECT `image_name` FROM `example_images` WHERE `item_id` = ' . $rowItem['item_id'] . ' ORDER BY `item_id` ASC LIMIT 1';
         $img = $db->getOne($sqlImg);
         foreach ($img as $pic) {
-            echo '<img src="files/' . $pic . '" width=20%>';
+            echo '<img src="files/' . $pic . '" width=100%; height="150px">';
         }
-        echo '<br>';
-        echo '<a href="' . INDEX . '?page=' . $page . '&idCat=' . $rowC['category_id'] . '&idItem=' . $rowItem['item_id'] . '">' . $rowItem['item_name'] . '</a>';
-        echo '<br>';
+        echo '<br><br><br>';
+        echo '</a></div>';
     }
     echo '<hr><a href="' . INDEX . '?page=' . $page . '">Назад (все категории)</a>';
 }
@@ -72,8 +74,33 @@ if (isset($_GET['idItem'])) {
     echo '</div>';
 
     // ------ ------ ------ ------   
-
     echo '<hr><a href="' . INDEX . '?page=' . $page . '&idCat=' . $_GET['idCat'] . '">Назад (эта категория)</a>';
+}
+
+
+// ----- поиск ----- 
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = ('SELECT * FROM `items` WHERE `item_name` LIKE "%' . $search . '%"');
+    $rows = $db->getAll($sql);
+
+    if (count($rows) < 1) {
+        echo '<h3>По запросу записи не найдены</h3>';
+    } else {
+        foreach ($rows as $row) {
+            echo '<h3>' . $row['item_name'] . '</h3>';
+
+            $sqlImg = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $row['item_id'] . ' ORDER BY `example_images`.`item_id` LIMIT 1';
+            $img = $db->getAll($sqlImg);
+            foreach ($img as $pic) {
+                echo '<div class="feature fancyDemo">';
+                echo '<a rel="group" title="" href="files/' . $pic['image_name'] . '"><img src="files/' . $pic['image_name'] . '" width=50% ></a>';
+                echo '</div>';
+            }
+            echo '<p class="para">' . $row['item_descr'] . '</p>';
+        }
+    }
+    echo '<hr><a href="' . INDEX . '?page=' . $page . '">Назад</a>';
 }
 ?>
 

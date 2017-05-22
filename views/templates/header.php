@@ -99,15 +99,20 @@
                     foreach ($rowsCat as $rowCat) {
                         echo '<li><a href="' . INDEX . '?page=' . $page . '&idCat=' . $rowCat['category_id'] . '">' . $rowCat['category_name'] . '</a></li>';
                     }
+                    
+                    echo '<li><a href="' . INDEX . '?page=2">Все категории</a></li>';
                     ?>
 
                     <h3>Поиск</h3>
-                    <form method="post" action="#" id="search_form">
+                    <form method="GET" role="search"">
                         <p>
-                            <input class="search" type="text" name="search_field" placeholder="..." />
+                            <input type="hidden" name="page" id="page" value="2">
+                            <input class="search" type="text" name="search" placeholder="..." />
                             <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
                         </p>
                     </form>
+
+                    
                 </div>
 
                 <div id="content">

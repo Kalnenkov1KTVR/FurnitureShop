@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 17 2017 г., 19:11
+-- Время создания: Май 15 2017 г., 18:42
 -- Версия сервера: 10.1.13-MariaDB
 -- Версия PHP: 7.0.8
 
@@ -62,7 +62,8 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`comment_id`, `comment_author`, `comment_text`, `comment_date`, `item_id`) VALUES
 (1, 'testA', 'testT', '2017-01-02', 1),
 (2, 'test1', 'test1', '2017-01-17', 1),
-(3, 'test2', 'test2', '2017-01-17', 1);
+(3, 'test2', 'test2', '2017-01-17', 1),
+(4, 'asds', 'asdasd', '2017-04-24', 2);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,27 @@ INSERT INTO `example_images` (`image_id`, `image_name`, `item_id`) VALUES
 (1, 'pic1.jpg', 2),
 (2, 'pic2.jpg', 3),
 (3, 'pic3.jpg', 4),
-(4, 'pic4.jpg', 1);
+(4, 'pic4.jpg', 1),
+(7, '1.jpg', 1),
+(8, '2.jpg', 2),
+(9, '3.jpg', 3),
+(10, '4.jpg', 4),
+(11, '5.jpg', 1),
+(12, '6.jpg', 2),
+(13, '7.jpg', 3),
+(14, '8.jpg', 4),
+(15, 'pic1.jpg', 2),
+(16, 'pic2.jpg', 3),
+(17, 'pic3.jpg', 4),
+(18, 'pic4.jpg', 1),
+(19, '1.jpg', 1),
+(20, '2.jpg', 2),
+(21, '3.jpg', 3),
+(22, '4.jpg', 4),
+(23, '5.jpg', 1),
+(24, '6.jpg', 2),
+(25, '7.jpg', 3),
+(26, '8.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -180,12 +201,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `comment_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `example_images`
 --
 ALTER TABLE `example_images`
-  MODIFY `image_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `image_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT для таблицы `items`
 --

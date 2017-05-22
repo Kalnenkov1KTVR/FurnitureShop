@@ -17,19 +17,24 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
             $sqlPic = "SELECT * FROM `example_images` WHERE `item_id` = " . $rowItem['item_id'] . " ORDER BY `example_images`.`image_name` ASC";
             $rowsPics = $db->getAll($sqlPic);
 
-            $text .= '<div class="row"><div class="container"><div class="row">'
-                    . '<a href="#myModal" role="button" class="btn btn-primary btn-sm" data-toggle="modal" data-keyboard="false" data-backdrop="static" data-remote="actions/image_add_window.php" title="Add">Add</a>'
-                    . '</div></div></div>';
+            $text .= '<table class="table">'
+                    . '<tr><td><a href="#myModal" role="button" class="btn btn-primary btn-sm" data-toggle="modal" data-keyboard="false" '
+                    . 'data-backdrop="static" data-remote="actions/image_add_window.php" title="Add">Add</a>'
+                    . '<td></tr></table><table class="table table-striped">';
 
             foreach ($rowsPics as $rowPic) {
-                $text .= '<img>' . $rowPic['image_name'] . '</img>';
-                $text .= '<img src="../files/' . $rowPic['image_name'] . '" alt=""class="img-responsive" style="width: 51px;"/>';
-                $text .= '<a href="#" role="button" data-keyboard="false" class="btn btn-primary btn-sm" data-backdrop="static" data-toggle="modal" '
+                $text .= '<tr>';
+                $text .= '<td colspan=2><img>' . $rowPic['image_name'] . '</img></td>';
+                $text .= '<td><img src="../files/' . $rowPic['image_name'] . '" alt=""class="img-responsive" style="width: 51px;"/></td>';
+                $text .= '<td><a href="#" role="button" data-keyboard="false" class="btn btn-primary btn-sm" data-backdrop="static" data-toggle="modal" '
                         . 'data-target="#myModal" data-remote="actions/image_delete_window.php?id=' . $rowPic['image_id'] . '">
-                    <span class="glyphicon glyphicon-remove" title="Delete" ></span></a>';
+                    <span class="glyphicon glyphicon-remove" title="Delete" ></span></a></td>';
+                $text .= '</tr>';
             }
+            $text .= '</table>';
         }
     }
+    $text .= '</tr>';
     echo '<div class="col-md-9"><ul>' . $text . '</ul></div>';
     ?>    
 

@@ -160,12 +160,12 @@ span.fancy_ico {
 
 span#fancy_left_ico {
     left: -9999px;
-    background: transparent url('../images/fancy_left.png') no-repeat;
+    background: transparent url('fancy_left.png') no-repeat;
 }
 
 span#fancy_right_ico {
     right: -9999px;
-    background: transparent url('../images/fancy_right.png') no-repeat;
+    background: transparent url('fancy_right.png') no-repeat;
 }
 
 a#fancy_left:hover {
