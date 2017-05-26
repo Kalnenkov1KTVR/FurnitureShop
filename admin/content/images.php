@@ -4,12 +4,12 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
     require_once '../../inc/db.php';
     $db = new db();
     $sql = "SELECT * FROM `categories` ORDER BY `categories`.`category_name` ASC";
-    $rows = $db->getAll($sql);
+    $rowsItm = $db->getAll($sql);
     $text = "";
-    foreach ($rows as $row) {
-        $text .= '<h3>' . $row['category_name'] . '</h3>';
+    foreach ($rowsItm as $rowItm) {
+        $text .= '<h3>' . $rowItm['category_name'] . '</h3>';
 
-        $sqlItem = "SELECT * FROM `items` WHERE `category_id` = " . $row['category_id'] . " ORDER BY `items`.`item_name` ASC";
+        $sqlItem = "SELECT * FROM `items` WHERE `category_id` = " . $rowItm['category_id'] . " ORDER BY `items`.`item_name` ASC";
         $_SESSION['item_id']=0;
         $rowsItem = $db->getAll($sqlItem);
         foreach ($rowsItem as $rowItem) {

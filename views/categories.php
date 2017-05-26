@@ -2,15 +2,15 @@
 <?php
 
 $sqlCat = 'SELECT * FROM `categories` ORDER BY `categories`.`category_name`';
-$rows = $db->getAll($sqlCat);
+$rowsItm = $db->getAll($sqlCat);
 
 
 
 if (!isset($_GET['idCat'])) {
-    echo '<h1>' . $row['menu_name'] . '</h1>';
+    echo '<h1>' . $rowItm['menu_name'] . '</h1>';
     echo '<ul>';
-    foreach ($rows as $row) {
-        echo '<li><a href="' . INDEX . '?page=' . $page . '&idCat=' . $row['category_id'] . '">' . $row['category_name'] . '</a></li>';
+    foreach ($rowsItm as $rowItm) {
+        echo '<li><a href="' . INDEX . '?page=' . $page . '&idCat=' . $rowItm['category_id'] . '">' . $rowItm['category_name'] . '</a></li>';
     }
     echo '</ul>';
 }
@@ -82,22 +82,22 @@ if (isset($_GET['idItem'])) {
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = ('SELECT * FROM `items` WHERE `item_name` LIKE "%' . $search . '%"');
-    $rows = $db->getAll($sql);
+    $rowsItm = $db->getAll($sql);
 
-    if (count($rows) < 1) {
+    if (count($rowsItm) < 1) {
         echo '<h3>По запросу записи не найдены</h3>';
     } else {
-        foreach ($rows as $row) {
-            echo '<h3>' . $row['item_name'] . '</h3>';
+        foreach ($rowsItm as $rowItm) {
+            echo '<h3>' . $rowItm['item_name'] . '</h3>';
 
-            $sqlImg = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $row['item_id'] . ' ORDER BY `example_images`.`item_id` LIMIT 1';
+            $sqlImg = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $rowItm['item_id'] . ' ORDER BY `example_images`.`item_id` LIMIT 1';
             $img = $db->getAll($sqlImg);
             foreach ($img as $pic) {
                 echo '<div class="feature fancyDemo">';
                 echo '<a rel="group" title="" href="files/' . $pic['image_name'] . '"><img src="files/' . $pic['image_name'] . '" width=50% ></a>';
                 echo '</div>';
             }
-            echo '<p class="para">' . $row['item_descr'] . '</p>';
+            echo '<p class="para">' . $rowItm['item_descr'] . '</p>';
         }
     }
     echo '<hr><a href="' . INDEX . '?page=' . $page . '">Назад</a>';

@@ -15,9 +15,9 @@
                 require_once '../../inc/db.php';
                 $db = new db();
                 $sql = "SELECT * FROM `categories`  ";
-                $rows = $db->getAll($sql);
-                foreach ($rows as $row) {
-                    echo '<option value="' . $row['category_id'] . '">' . $row['category_name'] . '</option>';
+                $rowsItm = $db->getAll($sql);
+                foreach ($rowsItm as $rowItm) {
+                    echo '<option value="' . $rowItm['category_id'] . '">' . $rowItm['category_name'] . '</option>';
                 }
                 ?>  
             </select>

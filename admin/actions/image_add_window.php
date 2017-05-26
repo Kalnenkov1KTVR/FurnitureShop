@@ -6,7 +6,7 @@ require_once '../../inc/db.php';
 $db = new db();
 
 $sql = "SELECT * FROM  `items` WHERE  `item_id` =" . $id;
-$row = $db->getOne($sql);
+$rowItm = $db->getOne($sql);
 ?>
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -23,7 +23,7 @@ $row = $db->getOne($sql);
                 $rowsI = $db->getAll($sqlI);
                 foreach ($rowsI as $rowI) {
                     echo '<option value="' . $rowI['item_id'] . '"';
-                    if ($rowI['item_id'] == $row['item_id'])
+                    if ($rowI['item_id'] == $rowItm['item_id'])
                         echo 'selected';
                     echo '>' . $rowI['item_name'] . '</option>';
                 }

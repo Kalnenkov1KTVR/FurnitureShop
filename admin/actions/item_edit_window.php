@@ -3,7 +3,7 @@ $id = $_GET['id'];
 require_once '../../inc/db.php';
 $db = new db();
 $sql = "SELECT * FROM `items` WHERE `item_id`=" . $id;
-$row = $db->getOne($sql);
+$rowItm = $db->getOne($sql);
 ?>
 
 <div class="modal-header">       
@@ -14,11 +14,11 @@ $row = $db->getOne($sql);
 <div class="modal-body">
     <form id="formE" class="form-horizontal col-sm-12" >
         <div class="form-group"><label>ID</label>
-            <input type="text" class="form-control required" placeholder="Item ID" data-placement="top" data-trigger="manual" data-content="" name="item_id" value="<?php echo $row['item_id']; ?>"  readonly></div>
+            <input type="text" class="form-control required" placeholder="Item ID" data-placement="top" data-trigger="manual" data-content="" name="item_id" value="<?php echo $rowItm['item_id']; ?>"  readonly></div>
         <div class="form-group"><label>Item</label>
-            <input type="text" class="form-control required" placeholder="item Name" data-placement="top" data-trigger="manual" data-content="" name="item_name" value="<?php echo $row['item_name']; ?>"></div>
+            <input type="text" class="form-control required" placeholder="item Name" data-placement="top" data-trigger="manual" data-content="" name="item_name" value="<?php echo $rowItm['item_name']; ?>"></div>
         <div class="form-group"><label>Description</label>
-            <textarea class="form-control" placeholder="Description" data-placement="top" data-trigger="manual" name="description" ><?php echo $row['item_descr']; ?></textarea></div>
+            <textarea class="form-control" placeholder="Description" data-placement="top" data-trigger="manual" name="description" ><?php echo $rowItm['item_descr']; ?></textarea></div>
         <div class="form-group"><label>Category</label>
             <select name="category_id" class="form-control" data-placement="top" data-trigger="manual">
 
@@ -27,7 +27,7 @@ $row = $db->getOne($sql);
                 $rowsCat = $db->getAll($sqlCat);
                 foreach ($rowsCat as $rowCat) {
                     echo '<option value="' . $rowCat['category_id'] . '"';
-                    if ($rowCat['category_id'] == $row['category_id'])
+                    if ($rowCat['category_id'] == $rowItm['category_id'])
                         echo 'selected';
                     echo '>' . $rowCat['category_name'] . '</option>';
                 }

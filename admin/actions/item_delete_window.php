@@ -8,7 +8,7 @@ $db = new db();
 
 $sql = "SELECT * FROM `items` WHERE `item_id`=" . $id;
 
-$row = $db->getOne($sql);
+$rowItm = $db->getOne($sql);
 
 //{
 ?>		
@@ -20,10 +20,10 @@ $row = $db->getOne($sql);
     <form class="form-horizontal col-sm-12" id="formED" >
 
         <div class="form-group"><label>ID</label>
-            <input type="text" class="form-control required" placeholder="Название отделения" data-placement="top" data-trigger="manual" data-content="" name="item_idDel" value="<?php echo $row['item_id']; ?>" readonly></div>
+            <input type="text" class="form-control required" placeholder="Название отделения" data-placement="top" data-trigger="manual" data-content="" name="item_idDel" value="<?php echo $rowItm['item_id']; ?>" readonly></div>
 
         <div class="form-group"><label>Item</label>
-            <input type="text" class="form-control required" placeholder="Название отделения" data-placement="top" data-trigger="manual" data-content="" name="itemDel" value="<?php echo $row['item_name']; ?>" readonly></div>
+            <input type="text" class="form-control required" placeholder="Название отделения" data-placement="top" data-trigger="manual" data-content="" name="itemDel" value="<?php echo $rowItm['item_name']; ?>" readonly></div>
 
 
 

@@ -4,15 +4,15 @@
 
 <?php
 $sql = "SELECT * FROM `items` ORDER BY `items`.`item_name` ASC";
-$rows = $db->getAll($sql);
+$rowsItm = $db->getAll($sql);
 
-foreach ($rows as $row) {
+foreach ($rowsItm as $rowItm) {
 
-    $sqlG = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $row['item_id'];
+    $sqlG = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $rowItm['item_id'];
     $rowsG = $db->getAll($sqlG);
     $memberG = count($rowsG);
     if ($memberG > 0) {
-        echo '<h3>' . $row['item_name'] . '</h3>';
+        echo '<h3>' . $rowItm['item_name'] . '</h3>';
 
         echo '<div class="row">';
         $pic = 0;

@@ -8,7 +8,7 @@ $db = new db();
 
 $sql = "SELECT * FROM `example_images` WHERE `image_id`=" . $id;
 
-$row = $db->getOne($sql);
+$rowItm = $db->getOne($sql);
 
 //{
 ?>		
@@ -20,10 +20,10 @@ $row = $db->getOne($sql);
     <form class="form-horizontal col-sm-12" id="formED" >
 
         <div class="form-group"><label>ID</label>
-            <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="image_idDel" value="<?php echo $row['image_id']; ?>" readonly></div>
+            <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="image_idDel" value="<?php echo $rowItm['image_id']; ?>" readonly></div>
 
         <div class="form-group"><label>Image</label>
-            <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="imageDel" value="<?php echo $row['image_name']; ?>" readonly></div>
+            <input type="text" class="form-control required" placeholder="" data-placement="top" data-trigger="manual" data-content="" name="imageDel" value="<?php echo $rowItm['image_name']; ?>" readonly></div>
 
 
 

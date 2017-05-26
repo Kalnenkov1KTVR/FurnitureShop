@@ -44,7 +44,7 @@
                         <?php
                         $db = new db();
                         $sql = "SELECT * FROM `menu` ORDER BY `menu`.`menu_order`";
-                        $rows = $db->getAll($sql);
+                        $rowsItm = $db->getAll($sql);
                         include 'views/navigation_menu.php';
                         ?>
 
@@ -57,12 +57,12 @@
                     if (isset($_GET['page'])) { // если установлена передача
                         $page = $_GET['page'];
                         $sql = "SELECT * FROM `menu` WHERE `menu_id` = $page";
-                        $row = $db->getOne($sql);
+                        $rowItm = $db->getOne($sql);
 
-                        $menu_link = MENUTITLE . '<li class="active">' . $row['menu_name'] . '</li>';
+                        $menu_link = MENUTITLE . '<li class="active">' . $rowItm['menu_name'] . '</li>';
 
                         if (isset($_GET['idCat'])) {
-                            $menu_link = MENUTITLE . '<li><a href="' . INDEX . '?page=' . $page . '">' . $row['menu_name'] . '</a></li>';
+                            $menu_link = MENUTITLE . '<li><a href="' . INDEX . '?page=' . $page . '">' . $rowItm['menu_name'] . '</a></li>';
                             $idCat = $_GET['idCat'];
                             $sqlCat = "SELECT * FROM `categories` WHERE `category_id` = " . $idCat;
                             $rowCat = $db->getOne($sqlCat);

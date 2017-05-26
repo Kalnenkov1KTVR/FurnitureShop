@@ -10,10 +10,10 @@ if (isset($_GET['page'])) {
 }
 
 $db = new db();
-$row = $db->getOne($sql);
-$file_page = $row['file_name']; // имя файла страницы из БД
+$rowItm = $db->getOne($sql);
+$file_page = $rowItm['file_name']; // имя файла страницы из БД
 
-if (file_exists('views/' . $file_page) && $row['file_name'] != "") {
+if (file_exists('views/' . $file_page) && $rowItm['file_name'] != "") {
     include ('views/' . $file_page);
 } else {
     echo '<h3 style="margin-left:20px">File ' . $file_page . ' doesn\'t exist.</h3>';

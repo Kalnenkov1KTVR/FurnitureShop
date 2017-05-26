@@ -7,7 +7,7 @@ $id = $_POST['item_idDel'];
 
 $sql = "SELECT * FROM `items` WHERE `item_id`=$id";
 
-$row = $db->getOne($sql);
+$rowItm = $db->getOne($sql);
 
 $sql = "DELETE FROM `items` WHERE `items`.`item_id` = $id";
 
