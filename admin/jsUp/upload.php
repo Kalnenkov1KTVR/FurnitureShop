@@ -9,8 +9,6 @@ if ($_POST['image_form_submit'] == 1) {
         $type = $_FILES['images']['type'][$key];
         $error = $_FILES['images']['error'][$key];
 
-        ############ Remove comments if you want to upload and stored images into the "uploads/" folder #############
-
         $target_dir = "../../images/";
         $target_file = $target_dir . $_FILES['images']['name'][$key];
         $file_name = $_FILES['images']['name'][$key];
