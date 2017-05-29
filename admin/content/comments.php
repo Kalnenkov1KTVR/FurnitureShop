@@ -30,7 +30,7 @@ foreach ($rowsItm as $rowItm) {
             <th>Data</th> 
             <th>Author</th> 
             <th>Comment</th> 
-            </tr></thead><tbody> ';
+            </tr></thead><tbody>';
 
         foreach ($rowsComms as $rowComm) {
 

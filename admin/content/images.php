@@ -10,7 +10,7 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
         $text .= '<h3> Категория: ' . $rowItm['category_name'] . '</h3>';
 
         $sqlItem = "SELECT * FROM `items` WHERE `category_id` = " . $rowItm['category_id'] . " ORDER BY `items`.`item_name` ASC";
-        $_SESSION['item_id']=0;
+        $_SESSION['item_id'] = 0;
         $rowsItem = $db->getAll($sqlItem);
         foreach ($rowsItem as $rowItem) {
             $text .= '<table class="table "><th><h4>' . $rowItem['item_name'] . '</h4><td></td><td></td></th>';
@@ -21,8 +21,6 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
             $text .= '<tr><td><label>Фотографии:</label></td>'
                     . '<td><a href="#myModal" role="button" class="btn btn-primary btn-sm" data-toggle="modal" data-keyboard="false" '
                     . 'data-backdrop="static" data-remote="actions/image_add_window.php?id=' . $rowItem['item_id'] . '"" title="Add">Загрузить</a></td>'
-   
-                    .'<td><button type="button" class="btn btn-primary btn-sm" id="multiple_images" data-id="'.$rowItem['item_id'].'"><span class="glyphicon glyphicon-cloud-upload"></span> Загрузить несколько</button>'
                     . '</tr></table><table class="table table-striped">';
 
 
@@ -59,8 +57,6 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
     $("#back").click(function (data) {
         $("#main").load("content/items.php");
     });
-    $("[id='multiple_images']").click(function () {
-        $("#main").load("content/add_multiple_images.php?id=" + $(this).data("id"));
-    });
+
 </script>
 
