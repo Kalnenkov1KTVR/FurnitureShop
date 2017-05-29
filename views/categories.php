@@ -30,8 +30,13 @@ if (isset($_GET['idCat']) & !isset($_GET['idItem'])) {
         echo '<br>';
         $sqlImg = 'SELECT `image_name` FROM `example_images` WHERE `item_id` = ' . $rowItem['item_id'] . ' ORDER BY `item_id` ASC LIMIT 1';
         $img = $db->getOne($sqlImg);
-        foreach ($img as $pic) {
-            echo '<img src="files/' . $pic . '" width=100%; height="150px">';
+
+        if ($img != '') {
+            foreach ($img as $pic) {
+                echo '<img src="files/' . $pic . '" width=100%; height="150px">';
+            }
+        } else {
+            echo '<img src="http://placehold.it/150x150">';
         }
         echo '<br><br><br>';
         echo '</a></div>';
