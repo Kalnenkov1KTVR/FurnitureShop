@@ -3,7 +3,7 @@
 // меню навигации - файл header.php
 $text = "";
 
-foreach ($rowsItm as $rowItm) {
+foreach ($rowsComms as $rowItm) {
     if ($rowItm['menu_id'] != 2) {   
         if ($rowItm['menu_order'] == "") {
             $text .= '<li><a href = "' . INDEX . '">' . $rowItm['menu_name'] . '</a></li>';

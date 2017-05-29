@@ -44,7 +44,7 @@
                         <?php
                         $db = new db();
                         $sql = "SELECT * FROM `menu` ORDER BY `menu`.`menu_order`";
-                        $rowsItm = $db->getAll($sql);
+                        $rowsComms = $db->getAll($sql);
                         include 'views/navigation_menu.php';
                         ?>
 

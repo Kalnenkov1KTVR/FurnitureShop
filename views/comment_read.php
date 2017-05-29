@@ -5,7 +5,7 @@
     $comment_table = '';
     
     $sql = 'SELECT * FROM `comments` WHERE `item_id` = '.$idItem.' ORDER BY `comments`.`comment_date` DESC';
-    $rowsItm = $db->getAll($sql);
+    $rowsComms = $db->getAll($sql);
     
     $comment_table .= '<h3>Комментарии</h3>';
     $comment_table .= '<table width="100%">'
@@ -15,7 +15,7 @@
             .'<th>Комментарий:</th>'
             .'</tr></thead><tbody>';
     
-    foreach($rowsItm as $rowItm) {
+    foreach($rowsComms as $rowItm) {
         $comment_table .= '<tr>'
                 .'<td>'.$rowItm['comment_author'].'</td>'
                 .'<td>'.$rowItm['comment_date'].'</td>'                

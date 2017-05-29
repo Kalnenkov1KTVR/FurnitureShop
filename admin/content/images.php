@@ -4,9 +4,9 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
     require_once '../../inc/db.php';
     $db = new db();
     $sql = "SELECT * FROM `categories` ORDER BY `categories`.`category_name` ASC";
-    $rowsItm = $db->getAll($sql);
+    $rowsComms = $db->getAll($sql);
     $text = "";
-    foreach ($rowsItm as $rowItm) {
+    foreach ($rowsComms as $rowItm) {
         $text .= '<h3> Категория: ' . $rowItm['category_name'] . '</h3>';
 
         $sqlItem = "SELECT * FROM `items` WHERE `category_id` = " . $rowItm['category_id'] . " ORDER BY `items`.`item_name` ASC";

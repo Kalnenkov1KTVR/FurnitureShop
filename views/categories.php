@@ -2,14 +2,14 @@
 <?php
 
 $sqlCat = 'SELECT * FROM `categories` ORDER BY `categories`.`category_name`';
-$rowsItm = $db->getAll($sqlCat);
+$rowsComms = $db->getAll($sqlCat);
 
 
 
 if (!isset($_GET['idCat'])) {
     echo '<h1>' . $rowItm['menu_name'] . '</h1>';
     echo '<ul>';
-    foreach ($rowsItm as $rowItm) {
+    foreach ($rowsComms as $rowItm) {
         echo '<li><a href="' . INDEX . '?page=' . $page . '&idCat=' . $rowItm['category_id'] . '">' . $rowItm['category_name'] . '</a></li>';
     }
     echo '</ul>';
@@ -82,12 +82,12 @@ if (isset($_GET['idItem'])) {
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = ('SELECT * FROM `items` WHERE `item_name` LIKE "%' . $search . '%"');
-    $rowsItm = $db->getAll($sql);
+    $rowsComms = $db->getAll($sql);
 
-    if (count($rowsItm) < 1) {
+    if (count($rowsComms) < 1) {
         echo '<h3>По запросу записи не найдены</h3>';
     } else {
-        foreach ($rowsItm as $rowItm) {
+        foreach ($rowsComms as $rowItm) {
             echo '<h3>' . $rowItm['item_name'] . '</h3>';
 
             $sqlImg = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $rowItm['item_id'] . ' ORDER BY `example_images`.`item_id` LIMIT 1';

@@ -4,9 +4,9 @@
 
 <?php
 $sql = "SELECT * FROM `items` ORDER BY `items`.`item_name` ASC";
-$rowsItm = $db->getAll($sql);
+$rowsComms = $db->getAll($sql);
 
-foreach ($rowsItm as $rowItm) {
+foreach ($rowsComms as $rowItm) {
 
     $sqlG = 'SELECT * FROM `example_images` WHERE `item_id` = ' . $rowItm['item_id'];
     $rowsG = $db->getAll($sqlG);
