@@ -17,6 +17,7 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"] == "admin")) {
 
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/login.css" rel="stylesheet">
+
     </head>
 
     <body>

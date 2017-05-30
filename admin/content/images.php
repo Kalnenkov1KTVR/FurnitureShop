@@ -23,12 +23,11 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
                     . 'data-backdrop="static" data-remote="actions/image_add_window.php?id=' . $rowItem['item_id'] . '"" title="Add">Загрузить</a></td>'
                     . '</tr></table><table class="table table-striped">';
 
-
-
             foreach ($rowsPics as $rowPic) {
                 $text .= '<tr>';
                 $text .= '<td colspan=2><img>' . $rowPic['image_name'] . '</img></td>';
-                $text .= '<td><img src="../files/' . $rowPic['image_name'] . '" alt=""class="img-responsive" style="width: 51px;"/></td>';
+                $text .= '<td><a rel="group" title="" href="../files/' . $rowPic['image_name'] . '">'
+                        . '<img src="../files/' . $rowPic['image_name'] . '" alt=""class="img-responsive" style="width: 51px;"/></a></td>';
                 $text .= '<td><a href="#" role="button" data-keyboard="false" class="btn btn-primary btn-sm" data-backdrop="static" data-toggle="modal" '
                         . 'data-target="#myModal" data-remote="actions/image_delete_window.php?id=' . $rowPic['image_id'] . '">
                     <span class="glyphicon glyphicon-remove" title="Delete" ></span></a></td>';
@@ -53,10 +52,10 @@ if (isset($_SESSION["rank"]) && ($_SESSION["rank"]) == "admin") {
 
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-
     $("#back").click(function (data) {
         $("#main").load("content/items.php");
     });
-
 </script>
+
+
 
